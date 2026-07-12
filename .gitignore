@@ -1,4 +1,4 @@
-# Keil 输出文件
+# Keil 编译输出文件
 *.o
 *.d
 *.crf
@@ -12,17 +12,18 @@
 *.hex
 *.bin
 
-# Keil 工程配置与调试文件
+# Keil 工程与调试文件
+*.uvopt
 *.uvoptx
 *.uvguix
 *.uvgui.*
 *.dbgdt
 *.plg
 
-# 编译中间文件
-/Listings/
-/Objects/
+# 编译中间文件夹
+Listings/
+Objects/
 
-# 其他系统或编辑器文件
+# 其他系统文件
 .DS_Store
 Thumbs.db
