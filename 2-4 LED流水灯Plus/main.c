@@ -1,6 +1,10 @@
 #include <reg52.h>
 #include <intrins.h>
 
+// 定义数组，存放LED流水灯的所有状态
+// 使用code关键字将数组定义在程序存储器（ROM）中，不占用内部RAM
+unsigned char code LED_State[] = {0xFE, 0xFD, 0xFB, 0xF7, 0xEF, 0xDF, 0xBF, 0x7F};
+
 void Delay1ms(unsigned int xms)		//@11.0592MHz
 {
 	unsigned char i, j;
@@ -19,22 +23,11 @@ void Delay1ms(unsigned int xms)		//@11.0592MHz
 
 
 void main(){
+	unsigned char i;
 	while(1){
-	  P2 = 0xFE; // 1111 1110
-		Delay1ms(500);
-		P2 = 0xFD; // 1111 1101
-		Delay1ms(500);
-	  P2 = 0xFB; // 1111 1011
-		Delay1ms(500);
-		P2 = 0xF7; // 1111 0111
-		Delay1ms(500);
-		P2 = 0xEF; // 1110 1111
-		Delay1ms(500);
-		P2 = 0xDF; // 1101 1111
-		Delay1ms(500);
-		P2 = 0xBF; // 1011 1111
-		Delay1ms(500);
-		P2 = 0x7F; // 0111 1111
-		Delay1ms(500);
+	  for(i = 0;i < 8;i++){
+			P2 = LED_State[i];
+			Delay1ms(500);
+		}
 	}
 }
