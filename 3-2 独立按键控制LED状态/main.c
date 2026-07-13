@@ -28,9 +28,11 @@ void Delay(unsigned int xms)		//@11.0592MHz
 
 void main(){
 		while(1){
-			LED1 = 0; // 点亮
-			Delay(500);
-			LED1 = 1; // 熄灭
-			Delay(500);
+			if(TXD == 0){
+				Delay(20);
+				while(TXD == 0);
+				Delay(20);
+				LED1 = ~LED1; // 按位取反
+			}
 		}
 }
