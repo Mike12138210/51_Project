@@ -2,12 +2,12 @@
 #include "Timer0.h"
 #include "MatrixLED.h"
 
-
+#define MATRIX_LED_PORT P0
 
 unsigned char currentFrame;
 unsigned char frameCounter; // 用于控制帧切换速度（帧延时计数器）
 
-// 存储图像数据（每一列对应一个字节）
+// 存储图像帧数据
 unsigned char code LEDAnimation[][8] = {
     {0x30, 0x48, 0x44, 0x22, 0x22, 0x44, 0x48, 0x30},
 		{0x7E, 0x81, 0x81, 0x81, 0x81, 0x81, 0x81, 0x7E},
