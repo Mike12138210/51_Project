@@ -379,14 +379,44 @@
               <FilePath>.\LCD1602.h</FilePath>
             </File>
             <File>
-              <FileName>OneWire.c</FileName>
+              <FileName>Delay.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\OneWire.c</FilePath>
+              <FilePath>.\Delay.c</FilePath>
             </File>
             <File>
-              <FileName>OneWire.h</FileName>
+              <FileName>Delay.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\OneWire.h</FilePath>
+              <FilePath>.\Delay.h</FilePath>
+            </File>
+            <File>
+              <FileName>AT24C02.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\AT24C02.c</FilePath>
+            </File>
+            <File>
+              <FileName>AT24C02.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\AT24C02.h</FilePath>
+            </File>
+            <File>
+              <FileName>I2C.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\I2C.c</FilePath>
+            </File>
+            <File>
+              <FileName>I2C.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\I2C.h</FilePath>
+            </File>
+            <File>
+              <FileName>Key_Int.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Key_Int.c</FilePath>
+            </File>
+            <File>
+              <FileName>Key_Int.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Key_Int.h</FilePath>
             </File>
             <File>
               <FileName>DS18B20.c</FileName>
@@ -399,14 +429,14 @@
               <FilePath>.\DS18B20.h</FilePath>
             </File>
             <File>
-              <FileName>Delay.c</FileName>
+              <FileName>OneWire.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\Delay.c</FilePath>
+              <FilePath>.\OneWire.c</FilePath>
             </File>
             <File>
-              <FileName>Delay.h</FileName>
+              <FileName>OneWire.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\Delay.h</FilePath>
+              <FilePath>.\OneWire.h</FilePath>
             </File>
           </Files>
         </Group>
