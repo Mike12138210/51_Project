@@ -1,0 +1,133 @@
+#include <reg52.h>
+#include "Timer0.h"
+#include "Delay.h"
+
+sbit Buzzer = P2^5;
+
+#define SPEED 125 //播放速度，值为四分音符的时长(ms)
+
+// 音符与索引对应表
+// P：休止符，L：低音，M：中音，H：高音，下划线：升半音符号#
+#define P   0 
+#define L1  1
+#define L1_ 2
+#define L2  3
+#define L2_ 4
+#define L3  5
+#define L4  6
+#define L4_ 7
+#define L5  8
+#define L5_ 9
+#define L6  10
+#define L6_ 11
+#define L7  12
+
+#define M1  13
+#define M1_ 14
+#define M2  15
+#define M2_ 16
+#define M3  17
+#define M4  18
+#define M4_ 19
+#define M5  20
+#define M5_ 21
+#define M6  22
+#define M6_ 23
+#define M7  24
+
+#define H1  25
+#define H1_ 26
+#define H2  27
+#define H2_ 28
+#define H3  29
+#define H4  30
+#define H4_ 31
+#define H5  32
+#define H5_ 33
+#define H6  34
+#define H6_ 35
+#define H7  36
+
+unsigned int FreqTable[] = {
+	0, // 休止符
+	63778,63873,63968,64054,64140,64215,64291,64360,64425,64489,64547,64607,
+  64655,64704,64751,64795,64837,64876,64913,64948,64981,65013,65042,65070,
+  65095,65120,65143,65166,65187,65206,65224,65242,65259,65274,65289,65303
+};
+
+// 生日快乐音符索引数组
+unsigned char code Music[]={
+	  //音符,时值
+	
+    // 第一行
+    M5, 2,   // 5
+    M5, 2,   // 5
+    M6, 4,   // 6
+    M5, 4,   // 5
+    H1, 4,   // 1·
+    M7, 8,   // 7
+
+    // 第二行
+    M5, 2,   // 5
+    M5, 2,   // 5
+    M6, 4,   // 6
+    M5, 4,   // 5
+    H2, 4,   // 2·
+    H1, 8,   // 1·
+
+    // 第三行
+    M5, 2,   // 5
+    M5, 2,   // 5
+    M5, 4,   // 5
+    H3, 4,   // 3·
+    H1, 4,   // 1·
+    M7, 4,   // 7
+    M6, 8,   // 6
+
+    // 第四行
+    M4, 2,   // 4
+    M4, 2,   // 4
+    M3, 4,   // 3
+    M4, 4,   // 4
+    H1, 4,   // 1·
+    M7, 8,   // 7
+
+    
+    0xFF // 终止标志
+};
+
+unsigned char FreqSelect,MusicSelect;
+unsigned int duration;
+
+void main(){
+	Timer0_Init();
+	while(1){
+		if(Music[MusicSelect] != 0xFF){
+		  FreqSelect = Music[MusicSelect];
+		  MusicSelect++;
+		  duration = Music[MusicSelect]; // 读取时值
+			MusicSelect++;
+		  
+			if(FreqSelect == 0){
+				// 休止符：直接延时（静音），无需开定时器
+			  TR0 = 0;
+				Delay(SPEED/4 * duration);
+			}else{
+				// 正常音符：打开定时器，播放
+			  TR0 = 1;
+				Delay(SPEED/4 * duration);
+		    TR0 = 0; // 停止发声
+		    Delay(5);
+			 }
+		}else{
+			TR0 = 0;
+			while(1);
+		 }
+	}
+}
+
+void Timer0_Routine() interrupt 1{
+  TL0 = FreqTable[FreqSelect] % 256; // 设置定时初值
+  TH0 = FreqTable[FreqSelect] / 256; // 设置定时初值
+	Buzzer = !Buzzer;
+}
