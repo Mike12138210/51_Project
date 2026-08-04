@@ -409,16 +409,6 @@
               <FilePath>.\I2C.h</FilePath>
             </File>
             <File>
-              <FileName>Key_Int.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Key_Int.c</FilePath>
-            </File>
-            <File>
-              <FileName>Key_Int.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Key_Int.h</FilePath>
-            </File>
-            <File>
               <FileName>DS18B20.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\DS18B20.c</FilePath>
@@ -437,6 +427,36 @@
               <FileName>OneWire.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\OneWire.h</FilePath>
+            </File>
+            <File>
+              <FileName>Key_Int.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Key_Int.c</FilePath>
+            </File>
+            <File>
+              <FileName>Key_Int.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Key_Int.h</FilePath>
+            </File>
+            <File>
+              <FileName>Timer0.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Timer0.c</FilePath>
+            </File>
+            <File>
+              <FileName>Timer0.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Timer0.h</FilePath>
+            </File>
+            <File>
+              <FileName>Buzzer.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Buzzer.c</FilePath>
+            </File>
+            <File>
+              <FileName>Buzzer.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Buzzer.h</FilePath>
             </File>
           </Files>
         </Group>
